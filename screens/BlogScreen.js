@@ -52,6 +52,14 @@ export default function BlogScreen({ route, navigation }) {
     })
   }
 
+  function onPress() {
+    
+    // var blog;
+    // for (blog in blogs) {
+    //   console.log(blog)
+    // }
+  }
+
   return (
     <View>
       <FlatList
@@ -61,7 +69,16 @@ export default function BlogScreen({ route, navigation }) {
           return (
             <TouchableOpacity
               id={item.id}
-              onPress={() => navigation.navigate("Post", { post: blogs[item.id] })}
+              onPress={() => { 
+                var currentBlog;
+                blogs.map(x => {
+                  if (x.id == item.id) {
+                    currentBlog = x
+                    console.log(x)               
+                  }
+                })
+                navigation.navigate("Post", { post: currentBlog })
+              }}
             >
               <View style={styles.row}>
                 <Text style={styles.title}>

@@ -76,13 +76,13 @@ export default function LoginScreen({ navigation }) {
           value={password}
           onChangeText={(input) => setPassword(input)}
         />
+        <Text style={styles.errorText}>{errorMessage}</Text>
         <TouchableOpacity onPress={signup} style={styles.loginButton}>
           <Text style={styles.buttonText}>Sign Up</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={signin} style={styles.loginButton}>
           <Text style={styles.buttonText}>Sign In</Text>
         </TouchableOpacity>
-        <Text style={styles.errorText}>{errorMessage}</Text>
       </View>
     </TouchableWithoutFeedback>
   )
@@ -120,6 +120,7 @@ const styles = StyleSheet.create({
     padding: 18,
     marginTop: 12,
     marginBottom: 36,
+    borderRadius: 20
   },
   buttonText: {
     color: "white",
